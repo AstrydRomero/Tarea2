@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RepositoryDemo.View.AddNewCategory"
+             BackgroundColor="Pink">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+            
+            <Label Text="Registro que se le pide:" TextColor="Black"
+                   FontSize="Large"
+                   FontAttributes="Bold"/>
+            <StackLayout>
+                
+                <Label Text="Departamento:" TextColor="Black"/>
+                <Entry Placeholder="Intro Departamento "
+                       Text="{Binding NombreDepartamento}"/>
+                <Label Text="Supervisor:" TextColor="Black"/>
+                <Entry Placeholder="Nombre Supervisor"
+                       Text="{Binding NombreSupervisor}"/>
+                <!--DATOS DE LOS Empleado-->
+                <Label Text="Datos del Empleado:" TextColor="Black"
+                        FontSize="Large"
+                   FontAttributes="Bold"/>
+                
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Nombre:" TextColor="Black" />
+                    <Entry Placeholder="Name"
+                           Text="{Binding NombreDelEmpleado}"/>
+                    <Entry Placeholder="Cargo"
+                           Text="{Binding CargoDelEmpleado}"/>
+                    <Button Text="Add"
+                            Command="{Binding AddEmpleadoCommand}"/>
+                         </StackLayout>
+                    
+                    <ListView ItemsSource="{Binding Empleado}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding NombreDelEmpleado}"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                    <Label Text="{Binding Mensage}"/>
+                    <Button Text="Guardar Registro"
+                      Command="{Binding SaveDepartamentoCommand}" />
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+
+    </ContentPage.Content>
+</ContentPage>
+
+
